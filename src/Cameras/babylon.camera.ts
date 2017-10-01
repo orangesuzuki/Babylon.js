@@ -941,7 +941,7 @@
             }
 
             // Target
-            if (parsedCamera.target) {
+            if (parsedCamera.target && (<any>camera).rotation.equals(Vector3.Zero())) {
                 if ((<any>camera).setTarget) {
                     (<any>camera).setTarget(Vector3.FromArray(parsedCamera.target));
                 }
