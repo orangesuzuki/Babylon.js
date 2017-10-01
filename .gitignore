@@ -166,3 +166,14 @@ localDev/src/*
 /dist/preview release/babylon.custom.js
 /dist/preview release/babylon.custom.max.js
 /localDev/src/index.js
+
+# my dev setting
+sandbox/model/*
+sandbox/index-local.html
+sandbox/typescript/*
+scripts/*.js
+Tools/SceneManager/*
+Tools/Extensions/*
+dist/manager.js
+sandbox/manager.js
+dist/Extensions/babylon.scenemanager.d.ts
