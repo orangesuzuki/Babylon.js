@@ -74,8 +74,14 @@
                 if (endKey.frame >= currentFrame) {
 
                     var startKey = keys[key];
-                    var startValue = this._getKeyValue(startKey.value);
-                    var endValue = this._getKeyValue(endKey.value);
+                    var startValue = this._getKeyValue(startKey.value)[0];
+                    var endValue = this._getKeyValue(endKey.value)[0];
+
+                    // get outTangent and inTanget
+                    var startKey_outTangent = this._getKeyValue(startKey.value)[2];
+                    var endKey_inTangent = this._getKeyValue(endKey.value)[1];
+                    startKey.outTangent = startKey_outTangent;
+                    endKey.inTangent = endKey_inTangent;
 
                     var useTangent = startKey.outTangent !== undefined && endKey.inTangent !== undefined;
                     var frameDelta = endKey.frame - startKey.frame;
@@ -92,7 +98,7 @@
                     switch (this._animation.dataType) {
                         // Float
                         case Animation.ANIMATIONTYPE_FLOAT:
-                            var floatValue = useTangent ? this._animation.floatInterpolateFunctionWithTangents(startValue, startKey.outTangent * frameDelta, endValue, endKey.inTangent * frameDelta, gradient) : this._animation.floatInterpolateFunction(startValue, endValue, gradient);
+                            var floatValue = useTangent ? this._animation.floatInterpolateFunctionWithTangents(startValue, startKey.outTangent * 1, endValue, endKey.inTangent * 1, gradient) : this._animation.floatInterpolateFunction(startValue, endValue, gradient);
                             switch (loopMode) {
                                 case Animation.ANIMATIONLOOPMODE_CYCLE:
                                 case Animation.ANIMATIONLOOPMODE_CONSTANT:

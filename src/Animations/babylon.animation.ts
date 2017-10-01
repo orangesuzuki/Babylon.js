@@ -533,7 +533,7 @@
 
                 switch (dataType) {
                     case Animation.ANIMATIONTYPE_FLOAT:
-                        data = key.values[0];
+                        data = key.values//[0];
                         break;
                     case Animation.ANIMATIONTYPE_QUATERNION:
                         data = Quaternion.FromArray(key.values);
