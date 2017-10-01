@@ -23,6 +23,11 @@ namespace Unity3D2Babylon
                 parentId = GetParentID(camera.transform),
                 position = camera.transform.localPosition.ToFloat()
             };
+            // FIX
+            babylonCamera.rotation[0] = camera.transform.localRotation.eulerAngles.x * (float)Math.PI / 180;
+            babylonCamera.rotation[1] = camera.transform.localRotation.eulerAngles.y * (float)Math.PI / 180;
+            babylonCamera.rotation[2] = camera.transform.localRotation.eulerAngles.z * (float)Math.PI / 180;
+
             metaData.type = "Camera";
             metaData.properties.Add("hdr", camera.hdr);
             metaData.properties.Add("clearFlags", camera.clearFlags.ToString());
